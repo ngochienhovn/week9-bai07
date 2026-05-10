@@ -3,12 +3,12 @@ name: Java CI with Maven
 on:
   push:
     branches: [ main ]
-
   pull_request:
     branches: [ main ]
 
+# Thay đổi ở đây: Cấp quyền write để upload dependency graph
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -26,3 +26,8 @@ jobs:
 
       - name: Run Maven
         run: mvn clean install
+
+      # Thêm bước này nếu bạn muốn tự động cập nhật Dependency Graph 
+      # (Bước mà bạn đã chạy và bị lỗi 403 lúc nãy)
+      - name: Update dependency graph
+        uses: advanced-security/maven-dependency-submission-action@v1
