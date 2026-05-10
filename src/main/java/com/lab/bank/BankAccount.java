@@ -40,4 +40,6 @@ public final class BankAccount {
         }
         balance -= amount;
     }
+
+    // Nothing is here
 }
