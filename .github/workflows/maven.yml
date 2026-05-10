@@ -16,8 +16,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+
+    # --- ADD THIS BLOCK ---
+    # Grants write access so the dependency submission action can upload the graph
+    permissions:
+      contents: write
+    # ----------------------
 
     steps:
     - uses: actions/checkout@v4
